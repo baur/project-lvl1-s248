@@ -1,21 +1,25 @@
 {
   "name": "baur-brain-games",
-  "version": "0.1.0",
-  "description": "",
-  "main": "index.js",
+  "version": "0.1.1",
+  "description": "my first node project",
+  "main": "dist/index.js",
   "files": [
     "dist"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "babel-node": "babel-node",
     "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
     "prepublishOnly": "npm run build"
   },
   "author": "Baur",
   "license": "ISC",
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "homepage": "https://github.com/baur/project-lvl1-s248.git",
   "dependencies": {
-    "shebang-command": "^1.2.0"
+    "readline-sync": "1.4.9"
   },
   "devDependencies": {
     "babel-cli": "*",
