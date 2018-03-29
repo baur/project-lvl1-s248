@@ -1,13 +1,12 @@
 {
   "name": "baur-brain-games",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "my first node project",
   "main": "dist/index.js",
   "files": [
     "dist"
   ],
   "scripts": {
-    "test": "jest",
     "babel-node": "babel-node",
     "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
     "prepublishOnly": "npm run build",
@@ -15,9 +14,6 @@
   },
   "author": "Baur",
   "license": "ISC",
-  "jest": {
-    "testEnvironment": "node"
-  },
   "homepage": "https://github.com/baur/project-lvl1-s248.git",
   "dependencies": {
     "readline-sync": "1.4.9"
@@ -26,7 +22,6 @@
     "babel-cli": "*",
     "babel-core": "*",
     "babel-eslint": "^8.2.2",
-    "babel-jest": "^22.4.1",
     "babel-plugin-transform-runtime": "*",
     "babel-preset-env": "*",
     "babel-preset-flow": "*",
@@ -36,14 +31,12 @@
     "eslint-config-airbnb-base": "*",
     "eslint-plugin-flowtype": "^2.46.1",
     "eslint-plugin-import": "^2.9.0",
-    "eslint-plugin-jest": "^21.12.2",
     "flow-bin": "^0.57",
-    "flow-typed": "^2.3.0",
-    "jest": "^22",
-    "jest-cli": "^22.4.2"
+    "flow-typed": "^2.3.0"
   },
   "bin": {
     "brain-games": "dist/bin/brain-games.js",
-    "brain-even": "dist/bin/brain-even.js"
+    "brain-even": "dist/bin/brain-even.js",
+    "brain-calc": "dist/bin/brain-calc.js"
   }
 }

@@ -26,13 +26,19 @@ const gameIsEven = (gamerName, correctAnswerCount) => {
   const answer = readlineSync.question('Your answer: ');
   const correctAnswer = isEven(randomInt) ? 'yes' : 'no';
   const coreectRepl = 'Correct!';
-  const unCoreectRepl = `'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'. \n Let's try again, ${gamerName}!`;
+  const unCorectRepl = `'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'. \n Let's try again, ${gamerName}!`;
   const isCorrect = answer === correctAnswer;
-  console.log(isCorrect ? coreectRepl : unCoreectRepl);
+  console.log(isCorrect ? coreectRepl : unCorectRepl);
   if (!isCorrect) {
     return;
   }
   if (isCorrect) { gameIsEven(gamerName, correctAnswerCount + 1); }
+};
+
+const playGameCalc = () => {
+  const gamerName = greeting();
+  console.log(gamerName);
+  return 0;
 };
 
 const playGameIsEven = () => {
@@ -40,4 +46,4 @@ const playGameIsEven = () => {
   gameIsEven(gamerName, 0);
 };
 
-export { greeting as default, playGameIsEven };
+export { greeting as default, playGameIsEven, playGameCalc };
