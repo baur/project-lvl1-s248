@@ -1,6 +1,7 @@
 import readlineSync from 'readline-sync';
-
-const isEven = n => n % 2 === 0;
+/* import { cons } from 'hexlet-pairs'; */
+import { isEven, getRandomInt } from './game-utils';
+import gameAPI from './game-facade';
 
 const greeting = () => {
   console.log('Welcome to the Brain Games! \nAnswer "yes" if number even otherwise answer "no".\n');
@@ -9,31 +10,23 @@ const greeting = () => {
   return gamerName;
 };
 
-const getRandomInt = () => {
-  const min = 1;
-  const max = 100;
-  return Math.floor(Math.random() * (max - min)) + min;
-};
-
-
 const gameIsEven = (gamerName, correctAnswerCount) => {
-  if (correctAnswerCount === 3) {
+  const questionText = () => getRandomInt();
+  const correctAnswer = () => isEven(questionText() ? 'yes' : 'no');
+  gameAPI(questionText, correctAnswer, gamerName, correctAnswerCount);
+  /* if (correctAnswerCount === 3) {
     console.log(`Congratulations, ${gamerName}!`);
     return;
   }
-  const randomInt = getRandomInt();
-  console.log(`Question: ${randomInt}`);
-  const answer = readlineSync.question('Your answer: ');
-  const correctAnswer = isEven(randomInt) ? 'yes' : 'no';
-  const coreectRepl = 'Correct!';
-  const unCorectRepl = `'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'. \n Let's try again, ${gamerName}!`;
-  const isCorrect = answer === correctAnswer;
-  console.log(isCorrect ? coreectRepl : unCorectRepl);
-  if (!isCorrect) {
+  const questionText = getRandomInt();
+  const correctAnswer = isEven(questionText) ? 'yes' : 'no';
+  const gameResult = gameEngine(questionText, gamerName, correctAnswer);
+  if (!gameResult) {
     return;
   }
-  if (isCorrect) { gameIsEven(gamerName, correctAnswerCount + 1); }
+  if (gameResult) { gameIsEven(gamerName, correctAnswerCount + 1); } */
 };
+
 
 const playGameCalc = () => {
   const gamerName = greeting();

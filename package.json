@@ -16,7 +16,8 @@
   "license": "ISC",
   "homepage": "https://github.com/baur/project-lvl1-s248.git",
   "dependencies": {
-    "readline-sync": "1.4.9"
+    "readline-sync": "1.4.9",
+    "hexlet-pairs": "*"
   },
   "devDependencies": {
     "babel-cli": "*",
