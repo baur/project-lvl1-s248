@@ -1,4 +1,5 @@
 #!/usr/bin/env node
-import isPrime from '..';
+import { game } from '../index';
 
-console.log(isPrime(2017));
+game();
+

@@ -1,21 +1,25 @@
 import readlineSync from 'readline-sync';
 
+const isEven = n => n % 2 === 0;
+
 const greeting = () => {
   console.log('Welcome to the Brain Games!');
-  const userName = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${userName}`);
+  const gamerName = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${gamerName}`);
 };
 
-const isPrime = (n) => {
-  if (n <= 1) {
-    return false;
-  }
-  for (let i = 2; i < n; i += 1) {
-    if (n % i === 0) {
-      return false;
-    }
-  }
-  return true;
+const getRandomInt = () => {
+  const min = 1;
+  const max = 100;
+  return Math.floor(Math.random() * (max - min)) + min;
 };
 
-export default greeting;
+const game = () => {
+  const randomInt = getRandomInt();
+  console.log(`Question: ${randomInt}`);
+  const answer = readlineSync.question('Your answer: ');
+  const correctAnswer = isEven(randomInt) ? 'yes' : 'no';
+  answer === correctAnswer ? console.log('Correct!') : console.log("'yes' is wrong answer ;(. Correct answer was 'no'. \n Let's try again, Bill!");
+};
+
+export { greeting as default, game };
