@@ -1,6 +1,6 @@
 {
   "name": "baur-brain-games",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "description": "my first node project",
   "main": "dist/index.js",
   "files": [
@@ -43,6 +43,7 @@
     "jest-cli": "^22.4.2"
   },
   "bin": {
-    "brain-games": "dist/bin/brain-games.js"
+    "brain-games": "dist/bin/brain-games.js",
+    "brain-even": "dist/bin/brain-even.js"
   }
 }
