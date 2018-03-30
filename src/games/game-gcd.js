@@ -7,7 +7,7 @@ const gcd = (n, m) => {
   return gcd(m, n % m);
 };
 
-const getAnswer = (expression) => {
+const getGCD = (expression) => {
   const numArray = expression.split(' ');
   const n = Number(numArray[0]);
   const m = Number(numArray[1]);
@@ -16,8 +16,10 @@ const getAnswer = (expression) => {
 
 const playGameGCD = () => {
   const gameRule = 'Find the greatest common divisor of given numbers.';
-  const questionText = () => `${getRandomInt(6, 36)} ${getRandomInt(6, 36)}`;
-  const correctAnswer = () => expression => getAnswer(expression);
+  const min = 6;
+  const max = 36;
+  const questionText = () => `${getRandomInt(min, max)} ${getRandomInt(min, max)}`;
+  const correctAnswer = () => nums => getGCD(nums);
   const QandA = () => cons(questionText, correctAnswer);
   gameAPI(QandA, gameRule);
 };
