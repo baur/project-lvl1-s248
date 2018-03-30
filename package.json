@@ -1,6 +1,6 @@
 {
   "name": "baur-brain-games",
-  "version": "0.1.14",
+  "version": "0.1.15",
   "description": "my first node project",
   "main": "dist/index.js",
   "files": [
