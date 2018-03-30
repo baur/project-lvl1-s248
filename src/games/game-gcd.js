@@ -1,6 +1,6 @@
 import { cons } from 'hexlet-pairs';
 import getRandomInt from './game-utils';
-import { gameAPI, greeting } from '..';
+import gameAPI from '..';
 
 const gcd = (expression) => {
   const numArray = expression.split(' ');
@@ -10,15 +10,11 @@ const gcd = (expression) => {
   return gcd(`${m} ${n % m}`);
 };
 
-const gameGCD = (gamerName, correctAnswerCount) => {
+const playGameGCD = () => {
+  const gameRule = 'Find the greatest common divisor of given numbers.';
   const questionText = () => `${getRandomInt(6, 36)} ${getRandomInt(6, 36)}`;
   const correctAnswer = () => expression => gcd(expression);
-  gameAPI(cons(questionText, correctAnswer), gamerName, correctAnswerCount);
-};
-
-const playGameGCD = () => {
-  const gamerName = greeting('Find the greatest common divisor of given numbers.');
-  gameGCD(gamerName, 0);
+  gameAPI(cons(questionText, correctAnswer), gameRule);
 };
 
 export default playGameGCD;

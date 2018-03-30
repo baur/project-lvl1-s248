@@ -1,6 +1,6 @@
 import { cons } from 'hexlet-pairs';
 import getRandomInt from './game-utils';
-import { gameAPI, greeting } from '..';
+import gameAPI from '..';
 
 const calcEngine = (expression) => {
   if (expression.indexOf('+') !== -1) {
@@ -14,7 +14,7 @@ const calcEngine = (expression) => {
   return Number(operandArray[0]) * Number(operandArray[1]);
 };
 
-const gameCalc = (gamerName, correctAnswerCount) => {
+const playGameCalc = () => {
   const questionText = () => {
     const operatorArray = [' + ', ' - ', ' * '];
     const min = 1;
@@ -25,12 +25,8 @@ const gameCalc = (gamerName, correctAnswerCount) => {
     return firstOperand + operator + seconOperand;
   };
   const correctAnswer = () => expression => calcEngine(expression);
-  gameAPI(cons(questionText, correctAnswer), gamerName, correctAnswerCount);
-};
-
-const playGameCalc = () => {
-  const gamerName = greeting('What is the result of the expression?');
-  gameCalc(gamerName, 0);
+  const gameRule = 'What is the result of the expression?';
+  gameAPI(cons(questionText, correctAnswer), gameRule);
 };
 
 export default playGameCalc;

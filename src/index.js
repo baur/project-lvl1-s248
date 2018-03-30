@@ -18,7 +18,7 @@ const gameDraw = (questionText, correctAnswer, gamerName) => {
   return isCorrect;
 };
 
-const gameAPI = (gameParams, gamerName, correctAnswerCount) => {
+const playGame = (gameParams, gamerName, correctAnswerCount) => {
   if (correctAnswerCount === 3) {
     console.log(`Congratulations, ${gamerName}!`);
     return;
@@ -29,7 +29,13 @@ const gameAPI = (gameParams, gamerName, correctAnswerCount) => {
   if (!gameResult) {
     return;
   }
-  if (gameResult) { gameAPI(gameParams, gamerName, correctAnswerCount + 1); }
+  if (gameResult) { playGame(gameParams, gamerName, correctAnswerCount + 1); }
 };
 
-export { greeting, gameAPI };
+const gameAPI = (gameParams, gameRule) => {
+  const correctAnswerCount = 0;
+  const gamerName = greeting(gameRule);
+  playGame(gameParams, gamerName, correctAnswerCount);
+};
+
+export default gameAPI;
