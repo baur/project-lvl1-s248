@@ -14,4 +14,12 @@ const calcEngine = (expression) => {
   return Number(operandArray[0]) * Number(operandArray[1]);
 };
 
-export { isEven, getRandomInt, calcEngine };
+const gcd = (expression) => {
+  const numArray = expression.split(' ');
+  const n = Number(numArray[0]);
+  const m = Number(numArray[1]);
+  if (m === 0) return n;
+  return gcd(`${m} ${n % m}`);
+};
+
+export { isEven, getRandomInt, calcEngine, gcd };

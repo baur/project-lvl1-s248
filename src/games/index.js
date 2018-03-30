@@ -1,7 +1,7 @@
 import readlineSync from 'readline-sync';
 import { cons } from 'hexlet-pairs';
 import gameAPI from './game-facade';
-import { isEven, getRandomInt, calcEngine } from './game-utils';
+import { isEven, getRandomInt, calcEngine, gcd } from './game-utils';
 
 const greeting = (gameRule) => {
   console.log(`Welcome to the Brain Games! \n${gameRule}.\n`);
@@ -30,6 +30,12 @@ const gameCalc = (gamerName, correctAnswerCount) => {
   gameAPI(cons(questionText, correctAnswer), gamerName, correctAnswerCount);
 };
 
+const gameGCD = (gamerName, correctAnswerCount) => {
+  const questionText = () => `${getRandomInt(6, 36)} ${getRandomInt(6, 36)}`;
+  const correctAnswer = () => expression => gcd(expression);
+  gameAPI(cons(questionText, correctAnswer), gamerName, correctAnswerCount);
+};
+
 const playGameCalc = () => {
   const gamerName = greeting('What is the result of the expression?');
   gameCalc(gamerName, 0);
@@ -40,4 +46,9 @@ const playGameIsEven = () => {
   gameIsEven(gamerName, 0);
 };
 
-export { greeting as default, playGameIsEven, playGameCalc };
+const playGameGCD = () => {
+  const gamerName = greeting('Find the greatest common divisor of given numbers.');
+  gameGCD(gamerName, 0);
+};
+
+export { greeting as default, playGameIsEven, playGameCalc, playGameGCD };

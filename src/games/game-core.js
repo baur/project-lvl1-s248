@@ -5,7 +5,7 @@ const gameDraw = (questionText, correctAnswer, gamerName) => {
   const answer = readlineSync.question('Your answer: ');
   const corectRepl = 'Correct!';
   const unCorectRepl = `'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'. \n Let's try again, ${gamerName}!`;
-  const isCorrect = answer == correctAnswer;
+  const isCorrect = String(answer) === String(correctAnswer);
   console.log(isCorrect ? corectRepl : unCorectRepl);
   return isCorrect;
 };
