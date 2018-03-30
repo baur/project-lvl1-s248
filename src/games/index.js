@@ -1,7 +1,7 @@
 import readlineSync from 'readline-sync';
 import { cons } from 'hexlet-pairs';
 import gameAPI from './game-facade';
-import { isEven, getRandomInt, calcEngine} from './game-utils';
+import { isEven, getRandomInt, calcEngine } from './game-utils';
 
 const greeting = (gameRule) => {
   console.log(`Welcome to the Brain Games! \n${gameRule}.\n`);
@@ -11,21 +11,21 @@ const greeting = (gameRule) => {
 };
 
 const gameIsEven = (gamerName, correctAnswerCount) => {
-  const questionText = () => getRandomInt(1,100);
+  const questionText = () => getRandomInt(1, 100);
   const correctAnswer = () => num => (isEven(num) ? 'yes' : 'no');
   gameAPI(cons(questionText, correctAnswer), gamerName, correctAnswerCount);
 };
 
 const gameCalc = (gamerName, correctAnswerCount) => {
   const questionText = () => {
-    const operatorArray = [' + ',' - ',' * '];
+    const operatorArray = [' + ', ' - ', ' * '];
     const min = 1;
     const max = 10;
-    const firstOperand = getRandomInt(min,max);
+    const firstOperand = getRandomInt(min, max);
     const seconOperand = getRandomInt(min, max);
-    const operator = operatorArray[getRandomInt(0,operatorArray.length-1)];
-    return firstOperand  + operator + seconOperand;
-  }
+    const operator = operatorArray[getRandomInt(0, operatorArray.length - 1)];
+    return firstOperand + operator + seconOperand;
+  };
   const correctAnswer = () => expression => calcEngine(expression);
   gameAPI(cons(questionText, correctAnswer), gamerName, correctAnswerCount);
 };
