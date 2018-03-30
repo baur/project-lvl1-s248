@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-import greeting from '../games/index';
+import greeting from '..';
 
 greeting();
