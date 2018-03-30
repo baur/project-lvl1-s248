@@ -23,8 +23,9 @@ const playGame = (gameParams, gamerName, correctAnswerCount) => {
     console.log(`Congratulations, ${gamerName}!`);
     return;
   }
-  const questionText = car(gameParams)();
-  const correctAnswer = cdr(gameParams)()(questionText);
+  const gameP = gameParams();
+  const questionText = car(gameP)();
+  const correctAnswer = cdr(gameP)()(questionText);
   const gameResult = gameDraw(questionText, correctAnswer, gamerName);
   if (!gameResult) {
     return;

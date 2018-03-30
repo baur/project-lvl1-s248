@@ -25,8 +25,11 @@ const playGameCalc = () => {
     return firstOperand + operator + seconOperand;
   };
   const correctAnswer = () => expression => calcEngine(expression);
+
+  const QandA = () => cons(questionText, correctAnswer);
+
   const gameRule = 'What is the result of the expression?';
-  gameAPI(cons(questionText, correctAnswer), gameRule);
+  gameAPI(QandA, gameRule);
 };
 
 export default playGameCalc;

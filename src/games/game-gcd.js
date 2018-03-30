@@ -14,7 +14,8 @@ const playGameGCD = () => {
   const gameRule = 'Find the greatest common divisor of given numbers.';
   const questionText = () => `${getRandomInt(6, 36)} ${getRandomInt(6, 36)}`;
   const correctAnswer = () => expression => gcd(expression);
-  gameAPI(cons(questionText, correctAnswer), gameRule);
+  const QandA = () => cons(questionText, correctAnswer);
+  gameAPI(QandA, gameRule);
 };
 
 export default playGameGCD;
