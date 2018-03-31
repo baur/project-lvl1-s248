@@ -10,21 +10,21 @@ const generateQA = () => {
   const maxRate = 10;
   const factorNum = getRandomInt(minRate, maxRate);
 
-  const pushArray = (arr, rate, step) => {
+  const generateArray = (arr, rate, step) => {
     const len = arr.length - 1;
     arr.push(arr[len] + rate);
 
     if (step === 8) {
-      const hideIndex = getRandomInt(0, len);
-      const hideValue = arr[hideIndex];
-      arr.splice(hideIndex, 1, '..');
-      return cons(arr.join(' '), hideValue);
+      const indexPos = getRandomInt(0, len);
+      const answer = arr[indexPos];
+      arr.splice(indexPos, 1, '..');
+      return cons(arr.join(' '), answer);
     }
 
-    return pushArray(arr, rate, step + 1);
+    return generateArray(arr, rate, step + 1);
   };
 
-  return pushArray([initNum], factorNum, 0);
+  return generateArray([initNum], factorNum, 0);
 };
 
 const playProgression = () => {
