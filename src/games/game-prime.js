@@ -14,7 +14,6 @@ const isPrimeRec = (n, step) => {
 
 const isPrime = n => isPrimeRec(n, 2);
 
-
 const generateQA = () => {
   const questionText = getRandomInt(2, 100);
   const correctAnswer = isPrime(questionText) ? 'yes' : 'no';

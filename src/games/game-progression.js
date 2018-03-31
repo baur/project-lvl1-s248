@@ -3,8 +3,12 @@ import getRandomInt from './game-utils';
 import gameAPI from '..';
 
 const generateQA = () => {
-  const initNum = getRandomInt(7, 77);
-  const factorNum = getRandomInt(1, 10);
+  const minNum = 7;
+  const maxNum = 77;
+  const initNum = getRandomInt(minNum, maxNum);
+  const minRate = 1;
+  const maxRate = 10;
+  const factorNum = getRandomInt(minRate, maxRate);
 
   const pushArray = (arr, rate, step) => {
     const len = arr.length - 1;
