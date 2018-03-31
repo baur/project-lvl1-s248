@@ -2,17 +2,18 @@ import { cons } from 'hexlet-pairs';
 import getRandomInt from './game-utils';
 import gameAPI from '..';
 
-const isPrime = (n) => {
-  if (n <= 1) {
+const isPrimeRec = (n, step) => {
+  if (step > n / 2) {
+    return true;
+  }
+  if (n <= 1 || n % step === 0) {
     return false;
   }
-  for (let i = 2; i < n; i += 1) {
-    if (n % i === 0) {
-      return false;
-    }
-  }
-  return true;
+  return isPrimeRec(n, step + 1);
 };
+
+const isPrime = n => isPrimeRec(n, 2);
+
 
 const generateQA = () => {
   const questionText = getRandomInt(2, 100);
