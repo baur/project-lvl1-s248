@@ -2,16 +2,13 @@ import { cons } from 'hexlet-pairs';
 import getRandomInt from './game-utils';
 import gameAPI from '..';
 
-const calcEngine = (expression) => {
-  if (expression.indexOf('+') !== -1) {
-    const operandArray = expression.split('+');
-    return Number(operandArray[0]) + Number(operandArray[1]);
-  } else if (expression.indexOf('-') !== -1) {
-    const operandArray = expression.split('-');
-    return Number(operandArray[0]) - Number(operandArray[1]);
+const calcEngine = (firstOperand, operator, seconOperand) => {
+  if (operator.trim() === '+') {
+    return firstOperand + seconOperand;
+  } else if (operator.trim() === '-') {
+    return firstOperand - seconOperand;
   }
-  const operandArray = expression.split('*');
-  return Number(operandArray[0]) * Number(operandArray[1]);
+  return firstOperand * seconOperand;
 };
 
 const playGameCalc = () => {
@@ -23,7 +20,7 @@ const playGameCalc = () => {
     const seconOperand = getRandomInt(min, max);
     const operator = operatorArray[getRandomInt(0, operatorArray.length - 1)];
     const questionText = firstOperand + operator + seconOperand;
-    const correctAnswer = calcEngine(questionText);
+    const correctAnswer = calcEngine(firstOperand, operator, seconOperand);
     return cons(questionText, correctAnswer);
   };
   const gameRule = 'What is the result of the expression?';
