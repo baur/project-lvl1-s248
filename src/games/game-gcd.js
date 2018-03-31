@@ -3,7 +3,7 @@ import getRandomInt from './game-utils';
 import gameAPI from '..';
 
 const gcd = (n, m) => {
-  if (m === 0) return n;
+  if (m === 0) return Math.abs(n);
   return gcd(m, n % m);
 };
 
