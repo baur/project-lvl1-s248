@@ -16,9 +16,9 @@ const generateQA = () => {
 
     if (step === 8) {
       const hideIndex = getRandomInt(0, len);
-      const hide = arr[hideIndex];
+      const hideValue = arr[hideIndex];
       arr.splice(hideIndex, 1, '..');
-      return cons(arr.join(' '), hide);
+      return cons(arr.join(' '), hideValue);
     }
 
     return pushArray(arr, rate, step + 1);
