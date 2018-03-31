@@ -19,10 +19,13 @@ const balance = (num) => {
 
 const playGameBalance = () => {
   const gameRule = 'Balance the given number.';
-  const questionText = () => getRandomInt(101, 2001);
-  const correctAnswer = () => num => balance(num);
-  const QandA = () => cons(questionText, correctAnswer);
-  gameAPI(QandA, gameRule);
+  const generateQA = () => {
+    const questionText = getRandomInt(101, 2001);
+    const correctAnswer = balance(questionText);
+    return cons(questionText, correctAnswer);
+  };
+
+  gameAPI(generateQA, gameRule);
 };
 
 export default playGameBalance;

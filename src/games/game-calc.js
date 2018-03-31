@@ -15,21 +15,19 @@ const calcEngine = (expression) => {
 };
 
 const playGameCalc = () => {
-  const questionText = () => {
+  const generateQA = () => {
     const operatorArray = [' + ', ' - ', ' * '];
     const min = 1;
     const max = 10;
     const firstOperand = getRandomInt(min, max);
     const seconOperand = getRandomInt(min, max);
     const operator = operatorArray[getRandomInt(0, operatorArray.length - 1)];
-    return firstOperand + operator + seconOperand;
+    const questionText = firstOperand + operator + seconOperand;
+    const correctAnswer = calcEngine(questionText);
+    return cons(questionText, correctAnswer);
   };
-  const correctAnswer = () => expression => calcEngine(expression);
-
-  const QandA = () => cons(questionText, correctAnswer);
-
   const gameRule = 'What is the result of the expression?';
-  gameAPI(QandA, gameRule);
+  gameAPI(generateQA, gameRule);
 };
 
 export default playGameCalc;

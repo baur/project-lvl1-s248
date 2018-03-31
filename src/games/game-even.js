@@ -6,10 +6,12 @@ const isEven = n => n % 2 === 0;
 
 const playGameIsEven = () => {
   const gameRule = 'Answer "yes" if number even otherwise answer "no"';
-  const questionText = () => getRandomInt(1, 100);
-  const correctAnswer = () => num => (isEven(num) ? 'yes' : 'no');
-  const QandA = () => cons(questionText, correctAnswer);
-  gameAPI(QandA, gameRule);
+  const generateQA = () => {
+    const questionText = getRandomInt(1, 100);
+    const correctAnswer = (isEven(questionText) ? 'yes' : 'no');
+    return cons(questionText, correctAnswer);
+  };
+  gameAPI(generateQA, gameRule);
 };
 
 export default playGameIsEven;
