@@ -2,6 +2,15 @@
 
 [![NPM](https://nodei.co/npm/baur-brain-games.png)](https://nodei.co/npm/baur-brain-games/)
 
+## Six simple CLI games:
+
+- `brain-even` - Answer "yes" if given number even otherwise answer "no".
+- `brain-calc` - What is the result of the expression of given numbers?
+- `brain-gcd` - Find the greatest common divisor of given numbers.
+- `brain-balance` - Balance (level) the given number.
+- `brain-progression` - What number is missing in this progression?
+- `brain-prime` - Is given number a prime?
+
 ## Install
         $ npm install -g baur-brain-games
 
